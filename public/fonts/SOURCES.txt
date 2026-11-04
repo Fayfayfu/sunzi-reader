@@ -1,0 +1,4 @@
+reading-kai-medium.woff: LXGW WenKai Medium, subset; see OFL.txt.
+Additional glyph U+23D61 (𣵡): GlyphWiki https://glyphwiki.org/wiki/u23d61
+Outline: https://glyphwiki.org/glyph/u23d61.svg
+Terms: https://en.glyphwiki.org/wiki/GlyphWiki:License
