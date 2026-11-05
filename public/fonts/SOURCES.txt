@@ -2,3 +2,8 @@ reading-kai-medium.woff: LXGW WenKai Medium, subset; see OFL.txt.
 Additional glyph U+23D61 (𣵡): GlyphWiki https://glyphwiki.org/wiki/u23d61
 Outline: https://glyphwiki.org/glyph/u23d61.svg
 Terms: https://en.glyphwiki.org/wiki/GlyphWiki:License
+
+reading-traditional-kai.woff: AR PL UKai CN (fonts-arphic-ukai 0.2.20080216.2), derived from AR PL KaitiM GB.
+Source: https://ftp.debian.org/debian/pool/main/f/fonts-arphic-ukai/fonts-arphic-ukai_0.2.20080216.2.orig.tar.bz2
+License: ARPHICPL.TXT (Arphic Public License).
+Modified 2026-11-05 for Sunzi Reader: AR PL UKai CN selected from ukai.ttc, subset to site characters, converted to WOFF; outlines unchanged. Distributed under ARPHIC PUBLIC LICENSE; see ARPHICPL.TXT.

@@ -17,14 +17,14 @@
   margin:0;color:#763f32;font-size:clamp(18px,1.55vw,21px);line-height:1.5;
 }
 .reader .named-pair{padding-block:18px}
-/* The bundled reading face is a chapter subset of LXGW WenKai Medium (OFL.txt). */
+/* Serve the same traditional Kai face on phones and desktops. */
 @font-face{
   font-family:"Shiji Reading Kai";
-  src:local("STKaitiSC-Bold"),local("Kaiti SC Bold"),url("fonts/reading-kai-medium.woff") format("woff");
+  src:url("fonts/reading-traditional-kai.woff") format("woff");
   font-weight:600;font-style:normal;font-display:swap;
 }
 .reader .edition-passage .original,.reader .edition-passage .straight,.map-evidence blockquote,.opening-sample blockquote{
-  font:600 clamp(21px,1.85vw,25px)/1.8 "Shiji Reading Kai","Kaiti SC",KaiTi,var(--serif);
+  font:600 clamp(21px,1.85vw,25px)/1.8 "Shiji Reading Kai","Bundled Reading Kai",KaiTi,var(--serif);
   letter-spacing:.035em;color:#1d211e;
 }
 .reader .named-pair>.translation{
@@ -244,3 +244,7 @@ main.home + footer.wrap {margin-top:0!important}
 .hero h1{font-size:clamp(76px,6.5vw,106px)}
 .chapter-wordmark{display:block;width:3.102em;height:1em;max-width:100%;object-fit:contain;object-position:left center}
 @media(max-width:650px){.hero h1{font-size:clamp(50px,13.6vw,74px)}}
+
+/* Modest weight reinforcement for the embedded Kai; pinyin stays light. */
+.reader .edition-passage .original,.reader .edition-passage .straight,.reader .note-quotation,.map-evidence blockquote,.opening-sample blockquote{-webkit-text-stroke:.014em currentColor}
+.reader .original rt,.reader .straight rt,.reader .note-quotation rt,.map-evidence rt,.opening-sample rt{-webkit-text-stroke:0}
