@@ -1,5 +1,7 @@
 'use strict';
 
+// Registration is paused; all reading progress stays in this browser.
+const accountsEnabled = false;
 let signedReader = null;
 let accountUnavailable = false;
 let pendingProgress = Promise.resolve();
@@ -21,12 +23,14 @@ function accountView() {
 }
 
 function journalAccount() {
+  if (!accountsEnabled) return '<p class="account-caption">阅读进度保存在当前浏览器中。</p>';
   if (accountUnavailable) return '<p class="account-caption"><a href="#account">账户服务暂不可用 · 重新连接</a></p>';
   if (signedReader) return '<p class="account-caption">已登录 · '+esc(signedReader.label)+'　<a href="#account">账户设置</a></p>';
   return '<p class="account-caption">当前进度保存在此浏览器。<a href="#account">注册或登录</a>，可在不同设备间续读。</p>';
 }
 
 async function beginReading() {
+  if (!accountsEnabled) { render(); return; }
   try {
     try { await configureEmail(); } catch { /* The hosted sign-in remains available during provider setup. */ }
     const res = await fetch('/api/account',{headers:await emailHeaders(),cache:'no-store',signal:AbortSignal.timeout(8000)});
@@ -50,7 +54,8 @@ async function beginReading() {
       notes = [];
     }
   } catch { accountUnavailable = true; }
-  document.querySelector('[data-page="account"]').textContent = signedReader ? '我的账户' : '注册 / 登录';
+  const accountLink = document.querySelector('[data-page="account"]');
+  if (accountLink) accountLink.textContent = signedReader ? '我的账户' : '注册 / 登录';
   render();
 }
 

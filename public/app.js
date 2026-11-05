@@ -125,6 +125,7 @@ function read(i){last=i;persist();return `<div class="crumb"><a href="#catalog">
 function journal(){let entries=lessons.map((_,i)=>i).filter(i=>notes[i]?.trim());return section('READING RECORD','我的研读')+journalAccount()+`<div class="journal-summary"><div><span class="eyebrow">READING PROGRESS</span><h2>已读 ${done.size} <small>/ 13 篇</small></h2><progress max="13" value="${done.size}"></progress></div><a class="button primary" href="${resumeLink()}">${icon('book')} ${resumeLabel()}</a></div>
 ${entries.length ? `<h2 class="journal-heading">以前的笔记 <small>${entries.length} 则</small></h2><div class="note-list">${entries.map(i=>`<a href="${link(i)}"><strong>第${numerals[i]}篇 · ${lessons[i][0]}</strong><p>${esc(notes[i])}</p><span>返回篇章 ${icon('arrow')}</span></a>`).join('')}</div>` : ''}`}
 function render(){stopTracking();let hash=location.hash.slice(1);
+ if(hash==='account'&&!accountsEnabled){hash='journal';history.replaceState(history.state,'','#journal')}
  const oldCase=/^read\/([1-9]|1[0-3])\/case$/.exec(hash);
  if(oldCase){hash='read/'+oldCase[1];history.replaceState(history.state,'','#'+hash)}
  const mapMatch=/^map(?:\/([1-9]|1[0-3]))?$/.exec(hash);
