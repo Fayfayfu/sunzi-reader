@@ -261,3 +261,6 @@ main.home + footer.wrap {margin-top:0!important}
  .method-intro strong{display:block;font-size:15px;margin-bottom:4px}
  .method-intro p{font-size:12px;line-height:1.85}
 }
+
+/* A-weight Weibei intro artwork keeps the same two lines on every device. */
+.hero-intro img{height:1em;max-width:100%;object-fit:contain;object-position:left center;vertical-align:middle}
