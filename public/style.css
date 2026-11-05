@@ -235,3 +235,7 @@ main.home + footer.wrap {margin-top:0!important}
 #email-field{box-sizing:border-box;width:min(100%,340px);padding:10px 12px;border:1px solid var(--line);background:#fffdf5;color:var(--ink);font:16px var(--sans)}
 #email-login .actions{margin-top:14px}
 #email-message{min-height:1.5em;font-size:14px}
+
+/* C-weight Weibei title artwork: 0.032 em stroke, consistent on every device. */
+.hero h1 .hero-wordmark{display:block;width:4.137em;height:1em;max-width:none;flex:none}
+.brand .brand-wordmark{display:block;width:5.392em;height:1em;max-width:none}
