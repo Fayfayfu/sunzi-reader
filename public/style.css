@@ -248,3 +248,16 @@ main.home + footer.wrap {margin-top:0!important}
 /* Modest weight reinforcement for the embedded Kai; pinyin stays light. */
 .reader .edition-passage .original,.reader .edition-passage .straight,.reader .note-quotation,.map-evidence blockquote,.opening-sample blockquote{-webkit-text-stroke:.014em currentColor}
 .reader .original rt,.reader .straight rt,.reader .note-quotation rt,.map-evidence rt,.opening-sample rt{-webkit-text-stroke:0}
+
+/* The cover introduces the book; practical instructions sit with the reading guide. */
+.hero-copy .hero-intro{font:400 clamp(16px,1.35vw,19px)/1.9 var(--serif);color:#665a4a;letter-spacing:.035em;margin:18px 0 26px}
+.hero-intro span{display:block}
+.method-intro{grid-column:1/-1;display:flex;align-items:baseline;gap:24px;padding-top:10px;color:var(--quiet)}
+.method-intro strong{flex:none;font-size:16px;font-weight:600;color:#665a4a}
+.method-intro p{font-size:13px;line-height:1.9}
+@media(max-width:650px){
+ .hero-copy .hero-intro{font-size:clamp(14px,3.8vw,16px);margin:16px 0 22px;max-width:none}
+ .method-intro{display:block;padding-top:8px}
+ .method-intro strong{display:block;font-size:15px;margin-bottom:4px}
+ .method-intro p{font-size:12px;line-height:1.85}
+}
