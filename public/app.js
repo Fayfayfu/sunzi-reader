@@ -111,7 +111,7 @@ function readingFrontispiece(i) {
   const group = groupOf(i);
   return `<div class="chapter-opening">
     <div><div class="eyebrow">CHAPTER ${num(i)} <b>/</b> ${groups[group]}</div>
-      <h1>${chapterWordmark(i)}</h1><p class="read-q">${lessons[i][1]}</p>
+      <h1>${chapterWordmark(i,"b")}</h1><p class="read-q">${lessons[i][1]}</p>
     </div>
     <img class="opening-art" width="180" height="132" src="art/chapter-ink/${num(i)}.webp" alt="${chapterArtDescriptions[i]}">
   </div>
