@@ -15,8 +15,8 @@ function persist(){if(signedReader)return true;try{localStorage.setItem(key,JSON
 let toastTimer;
 function notify(msg){$('#status').textContent=msg;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#status').textContent='',2600)}
 function section(en,title,action=''){return '<div class="section-head"><div><div class="eyebrow">'+en+'</div><h2>'+title+'</h2></div>'+action+'</div>'}
-function chapterWordmark(i){return `<img class="chapter-wordmark" src="art/chapter-titles/${num(i)}.svg" alt="${lessons[i][0]}篇">`}
-function card(i){const d=lessons[i];return '<a class="card" href="'+link(i)+'"><div class="card-index">第'+numerals[i]+'篇 <i></i> '+num(i)+'</div><img class="card-art" alt="" src="art/chapter-ink/'+num(i)+'.webp"><h3>'+chapterWordmark(i)+'</h3><p>'+d[1]+'</p><div class="card-foot"><span>'+groups[groupOf(i)]+'</span><b>'+(done.has(i)?'已读 ':'')+icon('arrow')+'</b></div></a>'}
+function chapterWordmark(i,weight="c"){const folder=weight==="b"?"chapter-titles-b":"chapter-titles";return `<img class="chapter-wordmark" src="art/${folder}/${num(i)}.svg" alt="${lessons[i][0]}篇">`}
+function card(i){const d=lessons[i];return '<a class="card" href="'+link(i)+'"><div class="card-index">第'+numerals[i]+'篇 <i></i> '+num(i)+'</div><img class="card-art" alt="" src="art/chapter-ink/'+num(i)+'.webp"><h3>'+chapterWordmark(i,'b')+'</h3><p>'+d[1]+'</p><div class="card-foot"><span>'+groups[groupOf(i)]+'</span><b>'+(done.has(i)?'已读 ':'')+icon('arrow')+'</b></div></a>'}
 function cards(ids){return '<div class="cards">'+ids.map(card).join('')+'</div>'}
 const sampleHistoryKey = 'sunzi.opening-sample.v2';
 let sampleHistory = { chapters: [], groups: {} };
