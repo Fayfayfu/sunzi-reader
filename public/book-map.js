@@ -70,7 +70,7 @@ function chapterLens(n) {
   const bridge = (label,idx,text)=>`<div><a href="#map/${idx+1}"><small>${label}</small><strong>${lessons[idx][0]}篇</strong><span aria-hidden="true">↗</span></a><p>${text}</p></div>`;
   return `<article class="map-lens" id="chapter-lens" aria-label="篇章详读" tabindex="-1">
     <div class="map-folio"><span>篇章详读</span><i></i><span>${num(i)} / 13</span></div>
-    <div class="map-lens-head"><div><small>第${numerals[i]}篇 · ${groups[groupOf(i)]}</small><h2>${lessons[i][0]}篇</h2></div><span class="map-seal" aria-hidden="true">孙子</span></div>
+    <div class="map-lens-head"><div><small>第${numerals[i]}篇 · ${groups[groupOf(i)]}</small><h2>${chapterWordmark(i)}</h2></div><span class="map-seal" aria-hidden="true">孙子</span></div>
     <div class="map-evidence"><small>原典选读</small><blockquote>${esc(source.text)}</blockquote><a href="${source.href}">到第 ${source.part} 段读原文与注解 <span aria-hidden="true">→</span></a></div>
     <h3>${lessons[i][1]}</h3><p class="lens-overview">${chapterOverviews[i]}</p>
     <div class="map-bridges">${i>0?bridge('承接上篇',i-1,mapTransitions[i-1]):''}${i<12?bridge('读到下篇',i+1,mapTransitions[i]):''}</div>
