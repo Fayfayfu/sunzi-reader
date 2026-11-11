@@ -268,3 +268,28 @@ main.home + footer.wrap {margin-top:0!important}
 /* Short chapter names share the cards’ B-weight Weibei outlines. */
 .map-leaf-wordmark{display:inline-block;width:2.067em;height:1em;vertical-align:middle}
 .map-leaf[aria-current] .map-leaf-wordmark{filter:brightness(0) invert(1)}
+
+/* Chapter artwork forms a clear backdrop with a protected text area. */
+.chapter-opening{
+  position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;
+  min-height:240px;margin:-26px calc(-1 * clamp(18px,3vw,42px)) 14px;
+  padding:32px clamp(18px,3vw,42px);background:#f0eee3;
+  border-bottom:1px solid #d8d5c6;
+}
+.chapter-opening::before{
+  content:"";position:absolute;z-index:-2;inset:8px 10px 8px 30%;
+  background:var(--chapter-art) right center / contain no-repeat;
+  mix-blend-mode:multiply;opacity:.9;
+}
+.chapter-opening::after{
+  content:"";position:absolute;z-index:-1;inset:0;
+  background:linear-gradient(90deg,#f6f3e9 0%,#f6f3e9f5 28%,#f6f3e970 48%,#f6f3e900 67%);
+}
+.chapter-opening>div{width:76%;position:relative}
+.chapter-opening .read-q{max-width:25em}
+@media(max-width:650px){
+  .chapter-opening{min-height:210px;margin:-19px -14px 14px;padding:26px 14px}
+  .chapter-opening::before{inset:8px 6px 8px 22%;opacity:.85}
+  .chapter-opening::after{background:linear-gradient(90deg,#f6f3e9 0%,#f6f3e9f5 32%,#f6f3e9b8 50%,#f6f3e930 74%,#f6f3e900 90%)}
+  .chapter-opening>div{width:100%}
+}

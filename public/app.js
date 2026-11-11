@@ -16,7 +16,7 @@ let toastTimer;
 function notify(msg){$('#status').textContent=msg;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#status').textContent='',2600)}
 function section(en,title,action=''){return '<div class="section-head"><div><div class="eyebrow">'+en+'</div><h2>'+title+'</h2></div>'+action+'</div>'}
 function chapterWordmark(i,weight="c"){const folder=weight==="b"?"chapter-titles-b":"chapter-titles";return `<img class="chapter-wordmark" src="art/${folder}/${num(i)}.svg" alt="${lessons[i][0]}篇">`}
-function card(i){const d=lessons[i];return '<a class="card" href="'+link(i)+'"><div class="card-index">第'+numerals[i]+'篇 <i></i> '+num(i)+'</div><img class="card-art" alt="" src="art/chapter-ink/'+num(i)+'.webp"><h3>'+chapterWordmark(i,'b')+'</h3><p>'+d[1]+'</p><div class="card-foot"><span>'+groups[groupOf(i)]+'</span><b>'+(done.has(i)?'已读 ':'')+icon('arrow')+'</b></div></a>'}
+function card(i){const d=lessons[i];return '<a class="card" href="'+link(i)+'"><div class="card-index">第'+numerals[i]+'篇 <i></i> '+num(i)+'</div><img class="card-art" alt="" src="art/chapter-ink/'+(i===4?'05-natural.png':num(i)+'.webp')+'"><h3>'+chapterWordmark(i,'b')+'</h3><p>'+d[1]+'</p><div class="card-foot"><span>'+groups[groupOf(i)]+'</span><b>'+(done.has(i)?'已读 ':'')+icon('arrow')+'</b></div></a>'}
 function cards(ids){return '<div class="cards">'+ids.map(card).join('')+'</div>'}
 const sampleHistoryKey = 'sunzi.opening-sample.v2';
 let sampleHistory = { chapters: [], groups: {} };
@@ -109,11 +109,10 @@ const chapterArtDescriptions = [
 ];
 function readingFrontispiece(i) {
   const group = groupOf(i);
-  return `<div class="chapter-opening">
+  return `<div class="chapter-opening" style="--chapter-art:url('art/chapter-ink/${i===4?'05-natural.png':num(i)+'.webp'}')">
     <div><div class="eyebrow">CHAPTER ${num(i)} <b>/</b> ${groups[group]}</div>
       <h1>${chapterWordmark(i,"b")}</h1><p class="read-q">${lessons[i][1]}</p>
     </div>
-    <img class="opening-art" width="180" height="132" src="art/chapter-ink/${num(i)}.webp" alt="${chapterArtDescriptions[i]}">
   </div>
   <details class="reading-stage"><summary>看阶段图 · ${groups[group]}</summary>
     <div class="reading-stage-inner">${stagePainting(group)}<div>
