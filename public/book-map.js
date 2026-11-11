@@ -58,7 +58,7 @@ function stagePainting(group) {
 }
 function branchNodes(group,selected) {
   const chapters=lessons.map((_,i)=>i).filter(i=>groupOf(i)===group);
-  const leaves=chapters.map(i=>`<li><a class="map-leaf" href="#map/${i+1}" title="${mapChapters[i][0]}" ${selected===i+1?'aria-current="page"':''}>${lessons[i][0]}</a></li>`).join('');
+  const leaves=chapters.map(i=>`<li><a class="map-leaf" href="#map/${i+1}" title="${mapChapters[i][0]}" ${selected===i+1?'aria-current="page"':''}><img class="map-leaf-wordmark" src="art/map-chapters-b/${num(i)}.svg" width="2067" height="1000" alt="${lessons[i][0]}"></a></li>`).join('');
   const last=chapters.at(-1);
   const connection=groupLinks[group] ? `<div class="group-link"><span class="link-line" aria-hidden="true"></span><div><small>${lessons[last][0]} → ${lessons[last+1][0]}</small><p>${groupLinks[group]}</p></div></div>` : '';
   return `<li class="map-stage"><div class="map-stage-content">${stagePainting(group)}<div class="stage-heading"><span class="stage-number">${num(group)}</span><h3>${groups[group]}</h3></div>
